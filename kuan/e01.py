@@ -2,8 +2,6 @@
 
 # deps:
 # main-deps: tabulate, matplotlib
-# author: kuan.yu@student.uni-tuebingen.de
-# license: MIT
 
 
 import re
