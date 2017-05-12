@@ -1,0 +1,13 @@
+solutions to exercises in [[http://coltekin.net/cagri/courses/snlp2017/][snlp2017]]
+
+* clarifications for e02 on 05-12
+
+** data from e01
+
+   the promised tsv data can be found at =./kuan/e02.csv=, albeit in csv format.
+
+** exercise 5
+
+   - center =chimlu=
+   - /take its dot product with itself, and then/
+   - divide the result to the number of elements in the array
