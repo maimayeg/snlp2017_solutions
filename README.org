@@ -4,7 +4,8 @@ solutions to exercises in [[http://coltekin.net/cagri/courses/snlp2017/][snlp201
 
 ** data from e01
 
-   the promised tsv data can be found at =./kuan/e02.csv=, albeit in csv format.
+   the promised tsv data can be found at =./cagri/e02.csv=; \\
+   or =./kuan/e02.csv= in csv format.
 
 ** exercise 5
 
