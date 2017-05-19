@@ -10,7 +10,7 @@ import numpy as np
 import numpy.ma as ma
 
 
-def childes_pos(chat_entries, re_pos=re.compile(r"([^\s\|:]+)(?:\||:)[^\s]+")):
+def childes_pos(chat_entries, re_pos=re.compile(r"([^\s\|:]+)[\|:][^\s]+")):
     """-> dict
 
     returns the following data from `chat_entries` in a record:
