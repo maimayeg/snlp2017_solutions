@@ -1,6 +1,8 @@
 import re
 
-re_remove = re.compile(r'\[[^\]]*\]|\([^)]*\)|[?.,!]')
+# the following can be made much simpler using character classes
+# but requries 'regex' library rather than basic 're'
+re_remove = re.compile(r'\[[^\]]*\]|\([^)]*\)|[-+=?.,!_/:"“\'&0-9]|@[^ ]+')
 age_re = re.compile(r'@ID:.*\|CHI\|(?P<age>[0-9;.]+).*')
 
 def childes_stats(filename):
@@ -55,3 +57,25 @@ def childes_stats(filename):
     stats['mot_nwtyp'] = len(mot_w)
     
     return stats
+
+def childes_utterances(filename):
+    """ Return utterances from the given a CHAT file.
+    """
+    lines = open(filename, "r").readlines()
+
+    for i in range(len(lines)):
+        line = lines[i]
+
+        # This part handles continuation lines.
+        j = i + 1
+        while j < len(lines) and lines[j].startswith('\t'):
+            line += ' ' + lines[j].strip()
+            j += 1
+
+        if line.startswith("*"): # main line 
+            speaker, utterance = line.strip().split('\t', 1)
+            speaker = speaker[1:-1]
+            utterance = re_remove.sub('', utterance)
+            words = utterance.split()
+
+            yield speaker, words
